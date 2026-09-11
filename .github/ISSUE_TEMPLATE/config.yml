@@ -1,0 +1,4 @@
+# Part of the reference issue template (see task.yml). With blank issues off, Read and Triage
+# users only see the form. Write access and above still get "Blank issue (Maintainers only)", so
+# the gate is the body check in issue-template-standard.md rule 4, not this file.
+blank_issues_enabled: false

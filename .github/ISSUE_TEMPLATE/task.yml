@@ -1,0 +1,38 @@
+# Issue form for every repository on this account. It is served from the public `.github`
+# repository (GitHub docs, "Creating a default community health file"), so no repository carries
+# its own copy: a repository that adds a .github/ISSUE_TEMPLATE folder shadows this one entirely.
+# The house reference lives beside the other standards references; change that first, then push
+# the copy in the `.github` repository. The diff between the two is the review.
+name: Task
+description: A card for the board. The body is the brief; whoever picks it up reads nothing else.
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What is true when this is done, and why it matters. One paragraph.
+    validations:
+      required: true
+
+  # The Ready gate. GitHub refuses the form while this field is empty, and the dispatcher reads
+  # the heading it renders (`### Acceptance criteria`) before setting Agent on the card.
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: >-
+        One per line. Each is a check a stranger with a clone of this repository can run without
+        asking anyone: say what to do and what to observe. "Works correctly" is not a criterion.
+        A command and its expected output is.
+      placeholder: |
+        - [ ] `dotnet build -c Release` on the branch: zero warnings, zero errors.
+        - [ ] Start the app with no settings file: the window opens and the title bar shows the version from the csproj.
+        - [ ] Set the poll interval to 0 in settings: the app rejects it and keeps the previous value.
+    validations:
+      required: true
+
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
+      description: What this card deliberately leaves alone, so the pickup does not widen it.
