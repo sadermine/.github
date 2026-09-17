@@ -1,0 +1,95 @@
+# Bug form, beside task.yml (Don H approved 2026-09-17, DM event 246bf76f). Same delivery as
+# task.yml: served from the public `.github` repository; change this reference first, then the copy.
+# The Ready gate reads the `### Acceptance criteria` heading, so that label must match task.yml's.
+name: Bug
+description: Something that worked, or should work, does not. Reproduction first; whoever picks it up reads nothing else.
+labels: [bug]
+body:
+  - type: textarea
+    id: what-is-wrong
+    attributes:
+      label: What is wrong
+      description: The symptom as the user sees it. One or two sentences.
+    validations:
+      required: true
+
+  - type: input
+    id: build
+    attributes:
+      label: Build
+      description: Commit SHA or version the bug was seen on. Without it nobody can tell whether a later fix covers it.
+      placeholder: f2db211
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Numbered, starting from a clean launch.
+      placeholder: |
+        1. Start the app with no settings file.
+        2. Open Settings and set the poll interval to 30.
+        3. Close Settings.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected
+      description: What should happen after the last step.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual
+      description: What happens instead. Quote error text exactly.
+    validations:
+      required: true
+
+  # "Seen once" tells the picker to reproduce before fixing anything.
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How often
+      options:
+        - Every time
+        - Sometimes
+        - Seen once
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Windows build, monitor layout and scaling, and any device involved (for example a microphone).
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Log path and excerpt, screenshots, Buzz event IDs. A suspected cause goes here too.
+
+  # The Ready gate, identical to task.yml. The prefilled lines are real criteria; add any the fix needs.
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: >-
+        One per line, each a check a stranger with a clone of this repository can run without
+        asking anyone. Keep the two lines below unless they cannot apply, and say why if you remove one.
+      value: |
+        - [ ] Follow Steps to reproduce on the fixed build: Actual no longer occurs and Expected does.
+        - [ ] A test or scripted check fails on the Build above and passes on the fix.
+    validations:
+      required: true
+
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
+      description: What this card deliberately leaves alone, so the pickup does not widen it.
