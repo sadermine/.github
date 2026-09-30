@@ -10,7 +10,9 @@ body:
     id: goal
     attributes:
       label: Goal
-      description: What is true when this is done, and why it matters. One paragraph.
+      description: >-
+        What is true when this is done, and why it matters. One paragraph. Blocking issues go in the
+        Relationships sidebar, not here.
     validations:
       required: true
 
@@ -23,7 +25,8 @@ body:
       description: >-
         One per line. Each is a check a stranger with a clone of this repository can run without
         asking anyone: say what to do and what to observe. "Works correctly" is not a criterion.
-        A command and its expected output is.
+        A command and its expected output is. A criterion from a spec is quoted here in full with
+        its ID beside it.
       placeholder: |
         - [ ] `dotnet build -c Release` on the branch: zero warnings, zero errors.
         - [ ] Start the app with no settings file: the window opens and the title bar shows the version from the csproj.
