@@ -4,13 +4,16 @@
 # The house reference lives beside the other standards references; change that first, then push
 # the copy in the `.github` repository. The diff between the two is the review.
 name: Task
-description: A card for the board. The body is the brief; whoever picks it up reads nothing else.
+description: A card for the board. The body is the brief; whoever picks it up reads it and what it links on main, nothing else.
 body:
   - type: textarea
     id: goal
     attributes:
       label: Goal
-      description: What is true when this is done, and why it matters. One paragraph.
+      description: >-
+        What is true when this is done, and why it matters. One paragraph. If a spec already
+        states a criterion this card is graded on, name it by ID and link the spec on main; do not
+        paste its text. Blocking issues go in the Relationships sidebar, not here.
     validations:
       required: true
 
