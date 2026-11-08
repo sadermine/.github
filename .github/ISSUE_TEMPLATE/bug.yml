@@ -1,5 +1,5 @@
-# Bug form, beside task.yml. Same delivery as
-# task.yml: served from the public `.github` repository; change this reference first, then the copy.
+# Bug form, beside task.yml. Same delivery as task.yml: served from the public `.github`
+# repository; change this reference first, then the copy.
 # The Ready gate reads the `### Acceptance criteria` heading, so that label must match task.yml's.
 name: Bug
 description: Something that worked, or should work, does not. Reproduction first; whoever picks it up reads nothing else.
