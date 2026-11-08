@@ -1,4 +1,4 @@
-# Bug form, beside task.yml (Don H approved 2026-09-17, DM event 246bf76f). Same delivery as
+# Bug form, beside task.yml. Same delivery as
 # task.yml: served from the public `.github` repository; change this reference first, then the copy.
 # The Ready gate reads the `### Acceptance criteria` heading, so that label must match task.yml's.
 name: Bug
